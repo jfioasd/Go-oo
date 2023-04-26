@@ -1,6 +1,11 @@
 package main
 import "fmt"
 
+const (
+    M_INT = iota
+    M_ARRAY
+)
+
 type Object interface {
     typeNum() int
 }
@@ -33,7 +38,7 @@ func main(){
     fmt.Println(stack[1].typeNum())
     for _, itm := range stack {
          fmt.Println(itm, itm.typeNum())
-         if itm.typeNum() == 0 {
+         if itm.typeNum() == M_INT {
              fmt.Println(itm.(Int).val)
          }
     }
